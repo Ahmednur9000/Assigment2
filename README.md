@@ -1,1 +1,1 @@
-Discribing the implementation of the intelligence part. 
+Discribing the implementation of the intelligence part. # Assigment2
