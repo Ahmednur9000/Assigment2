@@ -11,15 +11,15 @@ class Collection_History_players:
         if Player in self.Player_data:
             self.Player_data[player.name].append((player.get_GamePlayed , player.get_Score))
         else:
-            self.Player_data[player.name] = [( player.get_GamePlayed, score)]
+            self.Player_data[player.name] = [( player.get_GamePlayed) (score)]
         
     def print_stats(self):
         for player in self.player_data.items():
             print("Player Name:", player.name)
             
             for game_number, score in game_scores:
-                print("Game_played:", game_number)
-                print("Score:", score)
+                print("Game_played: ", game_number)
+                print("Score: ", score)
                 
            
                 
