@@ -7,7 +7,10 @@ def game_rules():
     
     print("Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to \"hold\": " ) 
     print("-> If the player rolls a 1, they score nothing and it becomes the next player's turn.\n")
-    print("-> ")
+    print("->If the player rolls any other number, it is added to their turn total and the player's turn continues.\n")
+    print("->If a player chooses to \"hold\", their turn total is added to their score, and it becomes the next player's turn. \n")
+    print("The first player to score 100 or more points wins.")
+    
     
     time.sleep(5)
     os.system("cls")
@@ -21,7 +24,28 @@ def main ():
     print("4. Restart \n")
     print("5. Quit")
         
-    choice = input()
+    choice = input("Enter the choice: ")
+    
+    while(choice != 5):
+        if (choice == 1):
+            print("1. Single player mode\n")
+            print("2.Multiplayer mode\n")
+            option = input("Enter your choice: ")
+            if option == 1 :
+                pass 
+            else:
+                pass
+        elif (choice == 2):
+            pass
+        elif(choice == 3):
+            pass
+        elif(choice == 4):
+            pass
+        else:
+            pass
+            
+            
+            
     
     
     
