@@ -1,6 +1,6 @@
 import random
 
-class dice:
+class Dice:
     
     def __init__ (self): 
         self.sides = 6
@@ -8,6 +8,7 @@ class dice:
     def roll (self): 
         rolled = random.randint(1 , self.sides)
         return rolled
+    
         
 # dice = Dice()
 
