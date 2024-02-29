@@ -1,15 +1,12 @@
-import dice
-class Player:
+class Computer: 
     
-    def __init__(self , name):
-        self.name = name 
+    def __init__(self ):
+        self.name = "Mister Robot"
         self.points = 0
         self.turn_score = 0
         self.gamewon = 0 
         self.gameloss = 0 
         
-    def change_name (self , new_name):
-        self.name = new_name
         
     def update_score(self,score):
         self.points += score
@@ -37,5 +34,14 @@ class Player:
     def get_losses(self):
         return self.gameloss
     
+    # The stragies for easy , normal and hard 
     
-        
+    def easyMode ():
+        pass
+    
+    def normalMode ():
+        pass
+    
+    def hardMode ():
+        pass
+    

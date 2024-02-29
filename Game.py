@@ -1,9 +1,6 @@
+import player
 
-
-def main(): 
-        pass
-    
-    
-    
-if __name__ == '__main__': 
-        main()
+class Game:
+        
+ # Shuld handle the switching of player
+ pass

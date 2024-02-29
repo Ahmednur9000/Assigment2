@@ -32,7 +32,12 @@ def main ():
             print("2.Multiplayer mode\n")
             option = input("Enter your choice: ")
             if option == 1 :
-                pass 
+                print("You would be faccing Mister Robot.")
+                print("Select the difficulty level of Mister Robot. ")
+                print("1. EASY "
+                      "2. NORMAL"
+                      "3. HARD")
+                difficulty_level_choice = input("Inter your choice: ")
             else:
                 pass
         elif (choice == 2):
