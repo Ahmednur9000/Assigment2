@@ -37,5 +37,7 @@ class Player:
     def get_losses(self):
         return self.gameloss
     
+    def get_score(self):
+        return self.points
     
-        
+    
