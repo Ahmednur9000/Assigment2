@@ -4,7 +4,7 @@ class Computer:
     
     def __init__(self ):
         self.name = "Mister Robot"
-        self.points = 0
+        self.total_score = 0
         self.turn_score = 0
         self.gamewon = 0 
         self.gameloss = 0 
@@ -34,15 +34,18 @@ class Computer:
         
     def easyMode(self):
         die = dice.Dice
-        roll = die.roll_computer_easyMode()
+        rolled_dice = die.roll_computer_easyMode()
+        return rolled_dice
         
     
     def mediumMode (self):
         option = random.randit(1 , 2)
         if option == 1 : 
-            action = "h" # the computer holds
+            action1 = "h" # the computer holds
+            return action1
         else:
-            action = "r" # the computer roll the dice
+            action2 = "r" # the computer roll the dice
+            return action2
     
     def hardMode (self, score):
         strategy = random.randint(1,3)   
