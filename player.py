@@ -8,13 +8,7 @@ class Player:
         self.gamewon = 0 
         self.gameloss = 0 
         
-    def change_name (self , new_name):
-        self.name = new_name
         
-    def rollDice (self):
-        die = dice.Dice
-        rolled_dice = die.roll
-        return rolled_dice    
     
     def update_score(self, roll_dice_num):
         
@@ -23,6 +17,7 @@ class Player:
             
         else:
             self.__totalscore += roll_dice_num
+    
             
     def get_total_score (self):
         return self.__totalscore
