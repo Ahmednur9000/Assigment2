@@ -4,7 +4,7 @@ class Player:
     def __init__(self , name):
         self.name = name 
 
-        self.turn_score = 0
+        self.total_score = 0
         self.__wins = 0 
         self.__loss = 0 
         self.__count_of_games_played = 0
