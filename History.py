@@ -1,4 +1,3 @@
-import player
 import pickle
 
 class History_players:

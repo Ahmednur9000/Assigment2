@@ -58,54 +58,7 @@ class Computer:
                  return self.__option == 'h'
         else :
              random_option = random.choice (['r', 'h'])
-             return random_option
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+             return random_option        
         
         
         
@@ -145,36 +98,36 @@ class Computer:
     #         return hold_play
             
             
-    def Advance (self, score, opponent_score):
+    # def Advance (self, score, opponent_score):
         
-        if self.__comp_score == 0 and opponent_score == 0 :
-            self.__option == 'P'
-            if score < 20:
-                return self.__option == 'P'
-            else:
-                return self.__option == 'H'
-        elif self.__comp_score >= 25 :
-            target_score = 100 - opponent_score
+    #     if self.__comp_score == 0 and opponent_score == 0 :
+    #         self.__option == 'P'
+    #         if score < 20:
+    #             return self.__option == 'P'
+    #         else:
+    #             return self.__option == 'H'
+    #     elif self.__comp_score >= 25 :
+    #         target_score = 100 - opponent_score
          
-            return self.__option == 'H'
-            return self.turn_total < target_score / num_turns
-        #End race or keep race
-        elif self.__comp_score > 71 or p1_score > 71 :
-            return self.__option == 'P'
-        else:
-            diff_bet_scores = 21 + (self.__comp_score - p1_score)/8
+    #         return self.__option == 'H'
+    #         return self.turn_total < target_score / num_turns
+    #     #End race or keep race
+    #     elif self.__comp_score > 71 or p1_score > 71 :
+    #         return self.__option == 'P'
+    #     else:
+    #         diff_bet_scores = 21 + (self.__comp_score - p1_score)/8
             
             
         
-        option = random.randint(1,2)
-        hold_play = random.choice (['H', 'P'])
-        if option == 1:
-            if score < 25:
-                return self.__option == 'P'
-            else:
-                return self.__option == 'H'
-        else:
-            if score < 25:
-                return self.__option == 'P'
-            else:
-                return self.__option == 'H'
+    #     option = random.randint(1,2)
+    #     hold_play = random.choice (['H', 'P'])
+    #     if option == 1:
+    #         if score < 25:
+    #             return self.__option == 'P'
+    #         else:
+    #             return self.__option == 'H'
+    #     else:
+    #         if score < 25:
+    #             return self.__option == 'P'
+    #         else:
+    #             return self.__option == 'H'
