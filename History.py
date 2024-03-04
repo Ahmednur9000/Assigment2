@@ -1,4 +1,5 @@
 import player
+import pickle
 
 class History_players:
     self.__player_data = {}
@@ -18,16 +19,15 @@ class History_players:
                 for wins, losses in game_stats:
                    print("Wins: ", wins)
                    print("Losses: ", losses)
-
     
-    def save_players_data(self):
-        with open(self.__filename, 'wb') as file:  # Use 'wb' for writing in binary mode
-            pickle.dump(self.__player_data, file)
+    def save_players_list(self):
+        with open(self.__filename, 'a+b') as file: 
+            pickle.dump(self.__Player_objs, file)
+    # load the data in the binary file to a list of player objects 
+    
+    
 
-    def load_players_list(self):
-        with open(self.__filename, 'rb') as file:  # Use 'rb' for reading in binary mode
-            return self.__player_data == pickle.load(file)
-
+   
 
 
     

@@ -20,7 +20,8 @@ class User:
                 self.__Player_objs == pickle.load(file)
         except FileNotFoundError:
             print("the file cannot be find , no player is loaded.")
-
+            
+    #List containing names
     def create_player(self, p_name):
         if p_name in self.__players:
             print("Name already taken. Please select another name.")
@@ -29,7 +30,7 @@ class User:
             self.__players.append(p_name)
             print("Player created.")
             return False   # Indicate that name is available & player created.
-            
+    #searching through a list        
     def search_player(self, p_name):       
         if p_name not in self.__Player_objs:
             print("Please enter correct name.")
@@ -42,7 +43,7 @@ class User:
             self.__Player_objs.remove(orig_name)
             self.__Player_objs.append(new_name)
             print("Name changed successfully.")
-        elif orig_name in self.__Player_objs and new_name in self.__Player_objs:
+        elif orig_name in self.__Player_objs and new_name in self.__player:
             print("Name already taken. Please select another name.")
         else:
             print("Name does not exist. Select option 'Create New Player'.")

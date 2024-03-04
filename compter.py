@@ -10,10 +10,6 @@ class Computer:
         self.gameloss = 0 
         
     
-    def rollDice (self):
-        die = dice.Dice
-        rolled_dice = die.roll
-        return rolled_dice    
     
     def update_score(self, roll_dice_num):
         
@@ -52,17 +48,17 @@ class Computer:
     # Strategy 1 = "Hold at 20", Strategy 2 = "Hold at 25", Strategy 3 = "Fair Play"
         if strategy == 1:
              if score < 20:
-                return self.__option == 'P'
+                return self.__option == 'r'
              else:
-                 return self.__option == 'H'
+                 return self.__option == 'h'
         elif strategy == 2:
              if score < 25:
-                return self.__option == 'P'
+                return self.__option == 'r'
              else:
-                 return self.__option == 'H'
+                 return self.__option == 'h'
         else :
-             hold_play = random.choice (['H', 'P'])
-             return hold_play
+             random_option = random.choice (['r', 'h'])
+             return random_option
         
         
         
