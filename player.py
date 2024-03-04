@@ -3,10 +3,11 @@ class Player:
     
     def __init__(self , name):
         self.name = name 
-        self.points = 0
+
         self.turn_score = 0
-        self.gamewon = 0 
-        self.gameloss = 0 
+        self.__wins = 0 
+        self.__loss = 0 
+        self.__count_of_games_played = 0
         
         
     
@@ -24,9 +25,9 @@ class Player:
     
     def won (self):
         self.__wins += 1
-        self.__gameplayed += 1
+        self.__count_of_games_played += 1
     
     def lost(self):
         self.__loss += 1
-        self.__gameplayed += 1
+        self.__count_of_games_played += 1
     
