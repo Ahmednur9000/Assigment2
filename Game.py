@@ -46,7 +46,8 @@ class Game:
                         roll_result = dice.Dice.roll # Call the rollDice method to get the rolled number
                         if roll_result == 1:
                             print("You rolled a 1. Turn over.")
-                            player.update_score(roll_result)  # Update the score (which will be 0 if it's 1)
+                            player.update_score(roll_result)
+                            return  # Update the score (which will be 0 if it's 1)
                         else:
                             print(f"You rolled a {roll_result}.")
                             player.update_score(roll_result)
@@ -82,7 +83,8 @@ class Game:
                             roll_result = compter.Computer.easyMode() # Call the rollDice method to get the rolled number
                             if roll_result == 1:
                                 print("You rolled a 1. Turn over.")
-                                compter.update_score(roll_result)  # Update the score (which will be 0 if it's 1)
+                                compter.update_score(roll_result) 
+                                return # Update the score (which will be 0 if it's 1)
                             else:
                                 print(f"You rolled a {roll_result}.")
                                 compter.update_score(roll_result)
