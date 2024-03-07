@@ -1,16 +1,33 @@
+import os
+import time
 import dice
 import player
 import compter
-import os
 import random
+import History
 
-class Game:
- 
+class Game: 
+    
+    History_obj = History.History_players()
+    
     def __init__(self):
         self._player_object_list = []
         self.current_player_index = 0
         self._point_score = 0
         self.target_score = 100
+    
+    def game_rules(self): 
+        print("WELCOME ! \n")
+        print("PIG : DICE GAME \n" )
+        print("The Game Rules: \n") 
+        
+        print("Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to \"hold\": " ) 
+        print("-> If the player rolls a 1, they score nothing and it becomes the next player's turn.\n")
+        print("->If the player rolls any other number, it is added to their turn total and the player's turn continues.\n")
+        print("->If a player chooses to \"hold\", their turn total is added to their score, and it becomes the next player's turn. \n")
+        print("The first player to score 100 or more points wins.")
+        time.sleep(10)
+        os.system("cls")
     
     
     def add_player_obj(self, player_obj):
@@ -26,12 +43,7 @@ class Game:
              print("P1 will roll first" + list_player_objs[0].name)
          else:
              print("P1 will roll first" + list_player_objs[1].name)
-             
-    def hold(self): 
-        current_player = self._player_object_list[self.current_player_index]
-        current_player.update_score(self._point_score)
-        self._point_score = 0
-        self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
+ 
              
     def Play_game (self ):
         
@@ -47,7 +59,7 @@ class Game:
                         if roll_result == 1:
                             print("You rolled a 1. Turn over.")
                             player.update_score(roll_result)
-                            return  # Update the score (which will be 0 if it's 1)
+                            self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                         else:
                             print(f"You rolled a {roll_result}.")
                             player.update_score(roll_result)
@@ -57,17 +69,18 @@ class Game:
                             player.won()
                             
                             print(f"{player.name} wins with a score of {player._Player__totalscore}!")
-                            return  # Exit the function, ending the game
+                            break  # Exit the function, ending the game
                         
                         else:
                             player.lost()
-                            return
+                            break
                             
                                
 
                     elif action.lower() == "h":
                         print(f"{player.name} holds.")
-                        self.hold()
+                        self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
+                        
                         
                 elif isinstance(players , compter.Computer()):
                     print(f"{players.name} turn: \n")
@@ -84,7 +97,7 @@ class Game:
                             if roll_result == 1:
                                 print("You rolled a 1. Turn over.")
                                 compter.update_score(roll_result) 
-                                return # Update the score (which will be 0 if it's 1)
+                                self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             else:
                                 print(f"You rolled a {roll_result}.")
                                 compter.update_score(roll_result)
@@ -103,7 +116,7 @@ class Game:
 
                         elif action.lower() == "h":
                             print(f"{compter.name} holds.")
-                            self.hold()
+                            self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             
                     if choice == 2:
                         action = compter.Computer.mediumMode()
@@ -111,7 +124,8 @@ class Game:
                             roll_result = dice.Dice.roll() # Call the rollDice method to get the rolled number
                             if roll_result == 1:
                                 print("You rolled a 1. Turn over.")
-                                compter.update_score(roll_result)  # Update the score (which will be 0 if it's 1)
+                                compter.update_score(roll_result)
+                                self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             else:
                                 print(f"You rolled a {roll_result}.")
                                 compter.update_score(roll_result)
@@ -130,7 +144,7 @@ class Game:
                         
                         elif action.lower() == "h":
                             print(f"{compter.name} holds.")
-                            self.hold()
+                            self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             
                     if choice == 3: 
                         score = dice.Dice.roll()
@@ -139,7 +153,8 @@ class Game:
                             roll_result = dice.Dice.roll() # Call the rollDice method to get the rolled number
                             if roll_result == 1:
                                 print("You rolled a 1. Turn over.")
-                                compter.update_score(roll_result)  # Update the score (which will be 0 if it's 1)
+                                compter.update_score(roll_result) 
+                                self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             else:
                                 print(f"You rolled a {roll_result}.")
                                 compter.update_score(roll_result)
@@ -158,4 +173,5 @@ class Game:
                         
                         elif action.lower() == "h":
                             print(f"{compter.name} holds.")
-                            self.hold()
+                            self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
+print("HEloo")
