@@ -1,45 +1,44 @@
+import game
+import player
+import compter
 
-import time
-import os
-def game_rules(): 
-    print("WELCOME ! \n")
-    print("PIG : DICE GAME \n" )
-    print("The Game Rules: \n") 
-    
-    print("Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to \"hold\": " ) 
-    print("-> If the player rolls a 1, they score nothing and it becomes the next player's turn.\n")
-    print("->If the player rolls any other number, it is added to their turn total and the player's turn continues.\n")
-    print("->If a player chooses to \"hold\", their turn total is added to their score, and it becomes the next player's turn. \n")
-    print("The first player to score 100 or more points wins.")
-    
-    
-    time.sleep(5)
-    os.system("cls")
-    
 def main ():
+    #intializing game obj
+    Game = game.Game()
+    Game.game_rules()
     
-    
-    print("1. Play \n")
-    print("2. Show History \n")
-    print("3. Rules\n")
-    print("4. Restart \n")
+    print("Here are your options")
+    print("1. Play ")
+    print("2. Show History ")
+    print("3. Rules")
+    print("4. Restart")
     print("5. Quit")
         
-    choice = input("Enter the choice: ")
+    choice = int(input("Enter the choice: "))
+    print("------------------------------------------------------------------------------------------------------------- ")
     
     while(choice != 5):
+        
         if (choice == 1):
-            print("1. Single player mode\n")
-            print("2.Multiplayer mode\n")
-            option = input("Enter your choice: ")
+            
+            print("1.Single player mode")
+            print("2.Multiplayer mode")
+            option = int(input("Enter your choice: "))
             if option == 1 :
                 print("You would be faccing Mister Robot.")
-                print("Select the difficulty level of Mister Robot. ")
-                print("1. EASY "
-                      "2. NORMAL"
-                      "3. HARD")
-                difficulty_level_choice = input("Inter your choice: ")
-            else:
+                #Taking the player name , intitalizing a obj and a robot 
+                name = input("Enter your name: ")
+                
+                player_obj = player.Player(name)
+                computer_obj = compter.Computer()
+                Game.add_player_obj(player_obj)
+                Game.add_player_obj(computer_obj)
+                print(" ")
+                Game.Play_game()
+                
+                
+            elif option == 2:
+                
                 pass
         elif (choice == 2):
             pass
@@ -54,5 +53,6 @@ def main ():
             
     
     
-    
+if __name__ == "__main__":
+    main()
     
