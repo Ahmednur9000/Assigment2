@@ -9,6 +9,7 @@ import History
 class Game: 
     
     History_obj = History.History_players()
+    die = dice.Dice()
     
     def __init__(self):
         self._player_object_list = []
@@ -46,33 +47,41 @@ class Game:
  
              
     def Play_game (self ):
+        die = dice.Dice()
+        computer_dice = compter.Computer()
+        
+        previous_player_index = None  
         
         while True:
-            
+            current_player = self._player_object_list[self.current_player_index]
             for players in self._player_object_list:
                 if isinstance (players , player.Player):
                     
                     action = input("Roll again (r) or hold (h)? ")
 
                     if action.lower() == "r":
-                        roll_result = dice.Dice.roll # Call the rollDice method to get the rolled number
+                        
+                        roll_result = die.roll# Call the rollDice method to get the rolled number
                         if roll_result == 1:
                             print("You rolled a 1. Turn over.")
-                            player.update_score(roll_result)
+                            current_player.update_score(roll_result)
                             self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                         else:
                             print(f"You rolled a {roll_result}.")
-                            player.update_score(roll_result)
+                            current_player.update_score(roll_result)
                             print(f"Current turn score: {player._Player__totalscore}")
 
-                        if player._Player__totalscore >= self.target_score:
-                            player.won()
+                        if current_player._Player__totalscore >= self.target_score:
+                            current_player.won()
                             
-                            print(f"{player.name} wins with a score of {player._Player__totalscore}!")
+                            print(f"{current_player.name} wins with a score of {player._Player__totalscore}!")
                             break  # Exit the function, ending the game
                         
                         else:
-                            player.lost()
+                            if previous_player_index is not None:
+                                previous_player = self._player_object_list[previous_player_index]
+                                previous_player.lost()
+                            
                             break
                             
                                
@@ -93,27 +102,32 @@ class Game:
                     if choice == 1:
                         action = random.choice(["r", "h", "r", "r"])
                         if action.lower() == "r":
-                            roll_result = compter.Computer.easyMode() # Call the rollDice method to get the rolled number
+                            
+                            roll_result = computer_dice.easyMode() # Call the rollDice method to get the rolled number
                             if roll_result == 1:
                                 print("You rolled a 1. Turn over.")
-                                compter.update_score(roll_result) 
+                                current_player.update_score(roll_result) 
                                 self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             else:
                                 print(f"You rolled a {roll_result}.")
-                                compter.update_score(roll_result)
+                                current_player.update_score(roll_result)
                                 print(f"Current turn score: {player._Player__totalscore}")
 
-                            if compter._Player__totalscore >= self.target_score :
-                                compter.won()
-                                player.lost()
+                            if current_player._Player__totalscore >= self.target_score :
+                                
+                                current_player.lost()
                                 print(f"{compter.name} wins with a score of {compter.total_score}!")
                                 return  # Exit the function, ending the game
-                            elif player.get_total_score() >= self.target_score:
-                                player.won()
-                                compter.lost()
+                            elif current_player.get_total_score() >= self.target_score:
+                                current_player.won()
+                                
                                 print(f"{player.name} wins with a score of {player.get_total_score()}!")
                                 return  # Exit the function, ending the game
-
+                            else:
+                                if previous_player_index is not None:
+                                    previous_player = self._player_object_list[previous_player_index]
+                                    previous_player.lost()
+                                    
                         elif action.lower() == "h":
                             print(f"{compter.name} holds.")
                             self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
@@ -136,14 +150,14 @@ class Game:
                                 player.lost()
                                 print(f"{compter.name} wins with a score of {compter._Player__totalscore}!")
                                 return  # Exit the function, ending the game
-                            elif player.get_total_score >= self.target_score:
-                                player.won
-                                compter.lost
+                            elif current_player.get_total_score >= self.target_score:
+                                current_player.won
+                        
                                 print(f"{player.name} wins with a score of {player.get_total_score()}!")
                                 return # Exit the function, ending the game
                         
                         elif action.lower() == "h":
-                            print(f"{compter.name} holds.")
+                            print(f"{current_player.name} holds.")
                             self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             
                     if choice == 3: 
@@ -153,25 +167,24 @@ class Game:
                             roll_result = dice.Dice.roll() # Call the rollDice method to get the rolled number
                             if roll_result == 1:
                                 print("You rolled a 1. Turn over.")
-                                compter.update_score(roll_result) 
+                                current_player.update_score(roll_result) 
                                 self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
                             else:
                                 print(f"You rolled a {roll_result}.")
-                                compter.update_score(roll_result)
+                                current_player.update_score(roll_result)
                                 print(f"Current turn score: {player._Player__totalscore}")
 
-                            if compter._Player__totalscore >= self.target_score:
-                                compter.won()
+                            if current_player._Player__totalscore >= self.target_score:
+                               
                                 player.lost()
-                                print(f"{compter.name} wins with a score of {compter._Player__totalscore}!")
+                                print(f"{current_player.name} wins with a score of {current_player._Player__totalscore}!")
                                 return  # Exit the function, ending the game
-                            elif player.get_total_score >= self.target_score:
-                                player.won
-                                compter.lost
+                            elif current_player.get_total_score >= self.target_score:
+                                current_player.won
+                                
                                 print(f"{player.name} wins with a score of {player.get_total_score()}!")
                                 return  # Exit the function, ending the game
                         
                         elif action.lower() == "h":
                             print(f"{compter.name} holds.")
                             self.current_player_index = (self.current_player_index + 1) % len(self._player_object_list)
-print("HEloo")

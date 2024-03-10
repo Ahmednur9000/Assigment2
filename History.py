@@ -1,8 +1,9 @@
 import pickle
 
 class History_players:
-    self.__player_data = {}
-    self.__filename = "player_stats.bin"
+    def __init__(self):
+        self.__player_data = {}
+        self.__filename = "player_stats.bin"
     
     
     def addPlayer(self, player):

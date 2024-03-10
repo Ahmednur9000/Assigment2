@@ -17,3 +17,8 @@ class Dice:
         
 # dice = Dice()
 
+if __name__ == "__main__":
+    die = Dice()
+    rolled_result = die.roll()
+    print(rolled_result)
+    

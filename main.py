@@ -1,6 +1,7 @@
 import game
 import player
 import compter
+import History
 
 def main ():
     #intializing game obj
@@ -35,6 +36,9 @@ def main ():
                 Game.add_player_obj(computer_obj)
                 print(" ")
                 Game.Play_game()
+            elif option == 2:
+                
+                Game.Play_game( )
                 
                 
             elif option == 2:
